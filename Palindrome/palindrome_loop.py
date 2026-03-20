@@ -2,12 +2,21 @@
 """Check if a given sting is a palindrome"""
 import sys
 
-
 def palindrome_loop(txt: str) -> bool:
     str_len = len(txt)
-    for i in range(int(str_len / 2)):
-        if txt[i] != txt[-(i + 1)]:
+    j = str_len -1
+    i = 0
+    while i < j:
+        while not txt[j].isalnum():
+            j -= 1
+        while not txt[i].isalnum():
+            i += 1
+        if j < i: break
+        # print(txt[i].lower(), "!=", txt[j].lower(), "|| i =", i, "j =", j, ";") # debug data :)
+        if txt[i].lower() != txt[j].lower():
             return False
+        j -= 1
+        i += 1
     return True
 
 
