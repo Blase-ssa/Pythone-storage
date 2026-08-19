@@ -1,0 +1,11 @@
+{
+    "\\s*stroke-linecap=\"[^\"]+\"": "",
+    "\\s*stroke-linejoin=\"[^\"]+\"": "",
+    "\\s*stroke-miterlimit=\"[^\"]+\"": "",
+    "\\s*class=\"[^\"]+\"": "",
+    "\\s*fill-rule=\"[^\"]+\"": "",
+    "\\s*clip-rule=\"[^\"]+\"": "",
+    "font-family=\"[^\"]+\"": "font-family=\"Arial\"",
+    "id=\"DECK_ELEMENTS\"": "id=\"cabins\"",
+    "id=\"R": "id=\"cabin"
+}
