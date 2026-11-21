@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
-import os
-
 from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.widgets import Footer, TabbedContent, TabPane
 
+from libs.config import Settings, load_settings
 from libs.rcon import RconClient
 from screens import (
     ConsoleView,
@@ -15,15 +14,6 @@ from screens import (
     SystemView,
     WorldView,
 )
-
-
-def _rcon_from_env() -> RconClient:
-    return RconClient(
-        host=os.environ.get("MCTUI_HOST", "papermc"),
-        port=int(os.environ.get("MCTUI_PORT", "25575")),
-        password=os.environ.get("MCTUI_PASSWORD", "secret"),
-        binary=os.environ.get("MCTUI_RCON_BIN", "rcon-cli"),
-    )
 
 
 class McTui(App):
@@ -39,9 +29,14 @@ class McTui(App):
         Binding("q", "quit", "Quit"),
     ]
 
-    def __init__(self) -> None:
+    def __init__(self, settings: Settings | None = None) -> None:
         super().__init__()
-        self.rcon = _rcon_from_env()
+        self.settings = settings or load_settings(argv=[])
+        self.rcon = RconClient(
+            host=self.settings.host,
+            port=self.settings.port,
+            password=self.settings.password,
+        )
 
     def compose(self) -> ComposeResult:
         with TabbedContent(initial="dashboard"):
@@ -71,4 +66,4 @@ class McTui(App):
 
 
 if __name__ == "__main__":
-    McTui().run()
+    McTui(load_settings()).run()
