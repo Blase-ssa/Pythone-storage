@@ -1,0 +1,68 @@
+Screen {
+    background: #1b1b1b;
+    color: #e8e8e8;
+}
+
+TabbedContent {
+    height: 1fr;
+}
+
+TabPane {
+    padding: 1 1;
+}
+
+DashboardView, PlayersView, WorldView, PluginsView, ConsoleView, SystemView {
+    height: 1fr;
+}
+
+#players-table {
+    height: 1fr;
+}
+
+#player-actions {
+    height: auto;
+    padding: 1 0 0 0;
+}
+
+#player-actions Button {
+    margin-right: 1;
+}
+
+#console-log {
+    height: 1fr;
+    border: solid #3d3d3d;
+}
+
+#console-input {
+    margin-top: 1;
+}
+
+#system-actions {
+    height: auto;
+    padding: 1 0;
+}
+
+#system-actions Button {
+    margin-right: 1;
+}
+
+#modal {
+    width: 60;
+    height: auto;
+    padding: 1 2;
+    background: #262626;
+    border: solid #5a5a5a;
+}
+
+#modal-buttons {
+    height: auto;
+    padding-top: 1;
+}
+
+#modal-buttons Button {
+    margin-right: 1;
+}
+
+ReasonModal, TeleportModal, ConfirmModal {
+    align: center middle;
+}
